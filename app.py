@@ -3,9 +3,19 @@
 
 import requests
 
-headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
-response = requests.get("https://www.example.com", headers=headers)
-print(response.text)
+try:
+    response = requests.get("https://www.example.com")
+    response.raise_for_status()  # 에러가 발생하면 예외를 일으킴
+    print(response.text)
+
+except requests.exceptions.HTTPError as errh:
+    print ("HTTP Error:",errh)
+except requests.exceptions.ConnectionError as errc:
+    print ("Error Connecting:",errc)
+except requests.exceptions.Timeout as errt:
+    print ("Timeout Error:",errt)
+except requests.exceptions.RequestException as err:
+    print ("OOps: Something went wrong",err)
 
 
 
