@@ -3,8 +3,8 @@
 
 import requests
 
-payload = {'key1': 'value1', 'key2': 'value2'}
-response = requests.post("https://www.example.com", data=payload)
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+response = requests.get("https://www.example.com", headers=headers)
 print(response.text)
 
 
