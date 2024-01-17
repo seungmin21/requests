@@ -3,7 +3,9 @@
 
 import requests
 
-response = requests.get("http://www.example.com")
-print(response.text)
+payload = {'key1': 'value1', 'key2': 'value2'}
+response = requests.get("https://www.example.com", params=payload)
+print(response.url)
+
 
 
