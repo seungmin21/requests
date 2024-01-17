@@ -4,8 +4,8 @@
 import requests
 
 payload = {'key1': 'value1', 'key2': 'value2'}
-response = requests.get("https://www.example.com", params=payload)
-print(response.url)
+response = requests.post("https://www.example.com", data=payload)
+print(response.text)
 
 
 
